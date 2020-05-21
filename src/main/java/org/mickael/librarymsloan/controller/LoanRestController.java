@@ -127,10 +127,5 @@ public class LoanRestController {
         return loanServiceContract.updateStatus();
     }
 
-    @GetMapping("/book/{bookId}/soon-returned")
-    public List<LocalDate> getSoonReturned(@PathVariable Integer bookId){
-        return loanServiceContract.findSoonestEndingLoan(bookId);
-    }
-
 
 }
