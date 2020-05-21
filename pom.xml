@@ -21,6 +21,12 @@
 		<lombok.version>1.18.12</lombok.version>
 		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
 	</properties>
+	<scm>
+		<connection>scm:git:https://github.com/Bibliotheque-OC-P7/library-ms-loan.git</connection>
+		<developerConnection>scm:git:https://github.com/Bibliotheque-OC-P7/library-ms-loan.git</developerConnection>
+		<url>https://github.com/Bibliotheque-OC-P7/library-ms-loan</url>
+		<tag>@{project.version}</tag>
+	</scm>
 
 	<dependencies>
 		<dependency>
@@ -109,6 +115,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<goals>pre-integration-test</goals>
+					<preparationGoals>package</preparationGoals>
+					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<remoteTagging>true</remoteTagging>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
